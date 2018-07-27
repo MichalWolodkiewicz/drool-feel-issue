@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<semantic:definitions xmlns:semantic="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns="http://www.trisotech.com/dmn/definitions/_566a561d-8fa4-4063-bb77-133ace4b0d9c" xmlns:feel="http://www.omg.org/spec/FEEL/20140401" xmlns:tc="http://www.omg.org/spec/DMN/20160719/testcase" xmlns:triso="http://www.trisotech.com/2015/triso/modeling" xmlns:trisofeed="http://trisotech.com/feed" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" exporter="DMN Modeler" exporterVersion="6.0.5.2" id="_566a561d-8fa4-4063-bb77-133ace4b0d9c" name="Drawing 1" namespace="http://www.trisotech.com/dmn/definitions/_566a561d-8fa4-4063-bb77-133ace4b0d9c" triso:logoChoice="Default">
+  <semantic:extensionElements/>
+  <semantic:itemDefinition label="DayOfTheWeek" name="DayOfTheWeek">
+    <semantic:typeRef>feel:string</semantic:typeRef>
+    <semantic:allowedValues triso:constraintsType="enumeration">
+      <semantic:text>"Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"</semantic:text>
+    </semantic:allowedValues>
+  </semantic:itemDefinition>
+  <semantic:itemDefinition label="Country" name="Country">
+    <semantic:typeRef>feel:string</semantic:typeRef>
+    <semantic:allowedValues triso:constraintsType="enumeration">
+      <semantic:text>"PL","USA","NO"</semantic:text>
+    </semantic:allowedValues>
+  </semantic:itemDefinition>
+  <semantic:decision id="_ad2e4532-75f1-4c0c-97c8-d98063494dc0" name="Sell alcohol">
+    <semantic:variable id="_58e4270b-a90a-4274-a3c2-ba4f53088c6d" name="Sell alcohol" typeRef="feel:boolean"/>
+    <semantic:informationRequirement>
+      <semantic:requiredInput href="#_188108b6-75ad-460e-98bf-be9b6921bc47"/>
+    </semantic:informationRequirement>
+    <semantic:informationRequirement>
+      <semantic:requiredInput href="#_ddd494f1-d0d5-4baa-888b-9a1fb81eaa06"/>
+    </semantic:informationRequirement>
+    <semantic:informationRequirement>
+      <semantic:requiredInput href="#_7e3e0913-d1d4-4d78-83b6-c978e7bf1702"/>
+    </semantic:informationRequirement>
+    <semantic:decisionTable hitPolicy="FIRST" id="_172d1ebe-e0bd-482b-902c-a3a47ef73f15" outputLabel="Sell alcohol">
+      <semantic:input id="_4ca1f730-5888-45d5-8127-e86e1888679d">
+        <semantic:inputExpression typeRef="feel:number">
+          <semantic:text>age</semantic:text>
+        </semantic:inputExpression>
+      </semantic:input>
+      <semantic:input id="_d7a78a8b-6752-4cf4-b424-fc94c82bfa92">
+        <semantic:inputExpression typeRef="Country">
+          <semantic:text>country</semantic:text>
+        </semantic:inputExpression>
+        <semantic:inputValues triso:constraintsType="enumeration">
+          <semantic:text>"PL","USA","NO"</semantic:text>
+        </semantic:inputValues>
+      </semantic:input>
+      <semantic:input id="_32b78a1f-41c2-4509-9d72-05fa10246453">
+        <semantic:inputExpression typeRef="DayOfTheWeek">
+          <semantic:text>day of the week</semantic:text>
+        </semantic:inputExpression>
+        <semantic:inputValues triso:constraintsType="enumeration">
+          <semantic:text>"Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"</semantic:text>
+        </semantic:inputValues>
+      </semantic:input>
+      <semantic:output id="_b2f6a897-9a05-428b-a737-0ca53f3f4c4a"/>
+      <semantic:rule id="_7b178b8f-db0e-464b-af81-17ed1fa39fbf">
+        <semantic:inputEntry id="_e2eb7ecd-d341-4abb-94b0-752727e953b4">
+          <semantic:text>18</semantic:text>
+        </semantic:inputEntry>
+        <semantic:inputEntry id="_13e02442-cbd5-43e4-8ffe-58df022c4431">
+          <semantic:text>"PL"</semantic:text>
+        </semantic:inputEntry>
+        <semantic:inputEntry id="_a8f2e892-3963-46f5-80ab-c3e004006953">
+          <semantic:text>-</semantic:text>
+        </semantic:inputEntry>
+        <semantic:outputEntry id="_d61e2691-792f-4ee5-9caa-14d39da2e3fe">
+          <semantic:text>true</semantic:text>
+        </semantic:outputEntry>
+      </semantic:rule>
+    </semantic:decisionTable>
+  </semantic:decision>
+  <semantic:inputData id="_188108b6-75ad-460e-98bf-be9b6921bc47" name="age">
+    <semantic:variable id="_5ac01774-1d20-4a0b-a750-fee2432ad785" name="age" typeRef="feel:number"/>
+  </semantic:inputData>
+  <semantic:inputData id="_ddd494f1-d0d5-4baa-888b-9a1fb81eaa06" name="country">
+    <semantic:variable id="_c716cb69-0bca-48f2-8022-fc504ff86657" name="country" typeRef="Country"/>
+  </semantic:inputData>
+  <semantic:inputData id="_7e3e0913-d1d4-4d78-83b6-c978e7bf1702" name="day of the week">
+    <semantic:variable id="_739d5982-210b-4e98-a17f-7fc9b16bc575" name="day of the week" typeRef="DayOfTheWeek"/>
+  </semantic:inputData>
+</semantic:definitions>
